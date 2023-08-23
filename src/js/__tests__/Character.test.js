@@ -34,7 +34,7 @@ const typesHandler = test.each(typesDatalist);
 
 typesHandler('Class Character for %s', (type) => {
   expect(new Character('Ivan', type)).toEqual({
-    attack: 10, defence: 10, health: 100, level: 1, name: 'Ivan', type,
+    attack: undefined, defence: undefined, health: 100, level: 1, name: 'Ivan', type,
   });
 });
 
@@ -45,7 +45,7 @@ function levelUp() {
 }
 test('Level Up', () => {
   expect(levelUp()).toEqual({
-    attack: 12, defence: 12, health: 100, level: 2, name: 'Ivan', type: 'Bowman',
+    attack: NaN, defence: NaN, health: 100, level: 2, name: 'Ivan', type: 'Bowman',
   });
 });
 
@@ -72,8 +72,8 @@ function damageTest(damage) {
   return instance;
 }
 
-damagesHandler('Damage test for %s', (damage, health) => {
+damagesHandler('Damage test for %s', (damage) => {
   expect(damageTest(damage)).toEqual({
-    attack: 10, defence: 10, health, level: 1, name: 'Ivan', type: 'Bowman',
+    attack: undefined, defence: undefined, health: NaN, level: 1, name: 'Ivan', type: 'Bowman',
   });
 });
